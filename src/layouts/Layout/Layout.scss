@@ -1,0 +1,36 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  // Le footer est pleine largeur, le reste est contraint au conteneur 1240px.
+  &__inner {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    gap: v.$section-gap;
+    width: 100%;
+    max-width: v.$container-width + v.$gutter * 2;
+    margin: 0 auto;
+    padding: 45px v.$gutter v.$section-gap;
+
+    @include m.mobile {
+      gap: 20px;
+      padding: 20px v.$gutter;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    gap: v.$section-gap;
+
+    @include m.mobile {
+      gap: 20px;
+    }
+  }
+}

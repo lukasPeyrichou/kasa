@@ -1,0 +1,39 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo img {
+    display: block;
+    width: auto;
+    height: 68px;
+
+    @include m.mobile {
+      height: 47px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 57px;
+    font-size: 24px;
+
+    a {
+      text-decoration: none;
+    }
+
+    // NavLink pose la classe .active sur la route courante.
+    a.active {
+      text-decoration: underline;
+    }
+
+    @include m.mobile {
+      gap: 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}
