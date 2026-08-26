@@ -1,0 +1,20 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: v.$section-gap 60px;
+  padding: v.$section-gap;
+  border-radius: v.$radius-large;
+  background-color: v.$color-background;
+
+  // Sur mobile la maquette pose les vignettes directement sur le fond blanc.
+  @include m.mobile {
+    grid-template-columns: 1fr;
+    gap: v.$gutter;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
