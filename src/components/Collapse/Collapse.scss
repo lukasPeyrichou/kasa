@@ -1,0 +1,58 @@
+@use '../../styles/variables' as v;
+
+.collapse {
+  border-radius: v.$radius-small;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: v.$color-primary;
+    color: v.$color-white;
+    text-align: left;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: v.$font-weight-bold;
+  }
+
+  &__arrow {
+    display: inline-flex;
+    flex: 0 0 auto;
+    transition: transform 250ms ease;
+  }
+
+  // La fleche pointe vers le bas fermee, vers le haut ouverte : :has()
+  // permet de cibler le header a partir de son panneau suivant, sans JS.
+  &__header:has(~ &__panel--open) &__arrow {
+    transform: rotate(180deg);
+  }
+
+  // Astuce grid-template-rows 0fr -> 1fr : anime une hauteur qui vaut
+  // "auto" sans avoir a la mesurer en JS, et sans demonter le contenu.
+  &__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    background-color: v.$color-background;
+    transition: grid-template-rows 300ms ease;
+
+    &--open {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__content {
+    padding: 0 20px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  &__panel--open &__content {
+    padding: 20px;
+  }
+}

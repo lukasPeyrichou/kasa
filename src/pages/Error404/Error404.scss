@@ -1,0 +1,49 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.error404 {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  color: v.$color-primary;
+  text-align: center;
+
+  &__code {
+    margin-bottom: 66px;
+    font-size: 288px;
+    font-weight: v.$font-weight-bold;
+    line-height: 1;
+  }
+
+  &__message {
+    margin-bottom: 137px;
+    font-size: 36px;
+  }
+
+  &__link {
+    font-size: 18px;
+    text-decoration: underline;
+  }
+
+  @include m.mobile {
+    padding: 60px 0;
+
+    &__code {
+      margin-bottom: 20px;
+      font-size: 96px;
+    }
+
+    &__message {
+      max-width: 280px;
+      margin-bottom: 130px;
+      font-size: 18px;
+    }
+
+    &__link {
+      font-size: 14px;
+    }
+  }
+}

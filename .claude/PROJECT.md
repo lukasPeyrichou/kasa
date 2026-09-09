@@ -3,7 +3,7 @@
 Fichier de suivi d'avancement — à relire en début de session pour reprendre
 là où on s'est arrêté. Mis à jour au fil des étapes, pas à la fin.
 
-Dernière mise à jour : **09/09/2026, fin de l'étape 4**.
+Dernière mise à jour : **09/09/2026, fin de l'étape 6**.
 
 ## Reprise rapide
 
@@ -84,14 +84,21 @@ revu s'il faut réintroduire la route `/404` nommée.
   gap 60/50, conteneur 1240px) et mobile 375px (1 colonne, pas de
   débordement horizontal). `loading="lazy"` sur les vignettes.
 
-- [ ] **Étape 5 — Page À propos**
-  Bloquant : **textes des 4 collapses** (Fiabilité, Respect, Service,
-  Sécurité) pas encore récupérés — à prendre dans le prototype Figma.
-  Composant `Collapse` à créer : fermé par défaut, toggle animé au clic.
+- [x] **Étape 5 — Page À propos** — ⚠️ **contenu provisoire**
+  Composant `Collapse` créé et vérifié : fermé au chargement, toggle au
+  clic, ouverture/fermeture indépendantes, flèche qui pivote à 180°,
+  `aria-expanded` correct. Animation de hauteur via l'astuce
+  `grid-template-rows: 0fr → 1fr` (pas de mesure JS, pas de démontage
+  du contenu). `Banner` réutilisé tel quel, sans titre.
+  **Reste à faire** : remplacer les 2 placeholders visibles —
+  les 4 textes des collapses et l'image de bannière
+  (`banner-about-placeholder.svg`). Les deux sont marqués `TODO` dans
+  le code et volontairement voyants à l'écran.
 
-- [ ] **Étape 6 — Page 404**
-  Pas commencée formellement (la coquille existe, contenu à faire).
-  ⚠️ Voir la note ci-dessus sur la route `/404` retirée de `Router.jsx`.
+- [x] **Étape 6 — Page 404** (`363291f` + travail non commité)
+  `404` en 288px/700 rouge, message, lien souligné vers l'accueil.
+  Responsive : 96px / 18px / 14px en mobile. Vérifié sur les deux
+  chemins qui y mènent (`/nimportequoi` et `/logement/id-bidon`).
 
 - [ ] **Étape 7 — Carrousel (`Slideshow`)**
   Pas commencée. Cas de test déjà identifiés dans les données : logements
