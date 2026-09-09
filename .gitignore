@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Outils locaux
-.claude/
+# Outils locaux (config du serveur de dev) — le suivi de projet reste versionne
+.claude/*
+!.claude/PROJECT.md
