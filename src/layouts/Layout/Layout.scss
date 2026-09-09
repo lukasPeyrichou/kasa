@@ -23,11 +23,14 @@
     }
   }
 
+  // A l'interieur d'une page, la maquette espace les blocs d'environ 40px
+  // (43px sur l'accueil, 38px sur A propos) — et non des 50px qui separent
+  // le header du contenu.
   &__main {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-    gap: v.$section-gap;
+    gap: 40px;
 
     @include m.mobile {
       gap: 20px;

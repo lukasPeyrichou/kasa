@@ -22,11 +22,13 @@ function Collapse({ title, children }) {
             transform sur un <svg> racine reste capricieux selon les moteurs,
             et le span donne une boite stable a animer. */}
         <span className="collapse__arrow" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          {/* Chevron vers le haut a l'etat ferme, comme sur la maquette :
+              il pivote a 180deg (donc vers le bas) a l'ouverture. */}
+          <svg width="23" height="13" viewBox="0 0 23 13" fill="none">
             <path
-              d="M4.5 7L9 11.5L13.5 7"
+              d="M2 11L11.5 2L21 11"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
