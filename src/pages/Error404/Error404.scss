@@ -7,12 +7,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+  // Espacements cales sur la maquette : les valeurs tiennent compte du
+  // demi-interlignage du bloc 288px, qui ajoute ~40px au-dessus du glyphe
+  // et ~41px en dessous.
+  padding: 81px 0 87px;
   color: v.$color-primary;
   text-align: center;
 
   &__code {
-    margin-bottom: 66px;
+    margin-bottom: 127px;
     font-size: 288px;
     font-weight: v.$font-weight-bold;
     line-height: 1;
@@ -29,16 +32,18 @@
   }
 
   @include m.mobile {
-    padding: 60px 0;
+    padding: 97px 0 91px;
 
     &__code {
-      margin-bottom: 20px;
+      margin-bottom: 117px;
       font-size: 96px;
     }
 
     &__message {
-      max-width: 280px;
-      margin-bottom: 130px;
+      // Force le meme retour a la ligne que la maquette :
+      // "Oups! La page que" / "vous demandez n'existe pas."
+      max-width: 265px;
+      margin-bottom: 116px;
       font-size: 18px;
     }
 
