@@ -9,7 +9,6 @@
   border-radius: v.$radius-large;
   background-color: v.$color-background;
 
-  // Sur mobile la maquette pose les vignettes directement sur le fond blanc.
   @include m.mobile {
     grid-template-columns: 1fr;
     gap: v.$gutter;

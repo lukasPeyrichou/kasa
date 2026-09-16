@@ -8,7 +8,6 @@ import './Card.scss'
 function Card({ id, title, cover }) {
   return (
     <Link className="card" to={`/logement/${id}`}>
-      {/* Le titre adjacent nomme deja le lien : l'image reste decorative. */}
       <img className="card__cover" src={cover} alt="" loading="lazy" />
       <h2 className="card__title">{title}</h2>
     </Link>
