@@ -38,13 +38,20 @@
   }
 
   @include m.mobile {
+    justify-content: flex-start;
     height: 111px;
     border-radius: v.$radius-small;
 
     &__title {
-      max-width: 230px;
+      padding: 0 16px;
       font-size: 24px;
+      line-height: 1;
       text-align: left;
+
+      // Maquette mobile : « Chez vous, » puis « partout et ailleurs ».
+      span {
+        display: block;
+      }
     }
   }
 }

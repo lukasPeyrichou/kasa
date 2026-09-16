@@ -7,7 +7,15 @@ import './Home.scss'
 function Home() {
   return (
     <>
-      <Banner image={bannerImage} title="Chez vous, partout et ailleurs" />
+      <Banner
+        image={bannerImage}
+        title={
+          <>
+            <span>Chez vous, </span>
+            <span>partout et ailleurs</span>
+          </>
+        }
+      />
       <section className="gallery">
         {logements.map(({ id, title, cover }) => (
           <Card key={id} id={id} title={title} cover={cover} />
