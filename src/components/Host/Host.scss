@@ -1,0 +1,36 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    color: v.$color-primary;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  &__picture {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    object-fit: cover;
+  }
+
+  @include m.mobile {
+    &__name {
+      font-size: 12px;
+    }
+
+    &__picture {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

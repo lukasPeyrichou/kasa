@@ -1,0 +1,25 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 115px;
+  height: 25px;
+  padding: 0 15px;
+  border-radius: v.$radius-small;
+  background-color: v.$color-primary;
+  color: v.$color-white;
+  font-size: 14px;
+  font-weight: v.$font-weight-bold;
+  white-space: nowrap;
+
+  @include m.mobile {
+    min-width: 84px;
+    height: 18px;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,26 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.rating {
+  display: flex;
+  gap: 16px;
+
+  &__star {
+    width: 24px;
+    height: 24px;
+    fill: #e3e3e3;
+
+    &--active {
+      fill: v.$color-primary;
+    }
+  }
+
+  @include m.mobile {
+    gap: 5px;
+
+    &__star {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
