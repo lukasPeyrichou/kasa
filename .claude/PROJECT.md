@@ -3,7 +3,7 @@
 Fichier de suivi d'avancement — à relire en début de session pour reprendre
 là où on s'est arrêté. Mis à jour au fil des étapes, pas à la fin.
 
-Dernière mise à jour : **09/09/2026, fin de l'étape 6**.
+Dernière mise à jour : **16/09/2026, fin de l'étape 10 — projet terminé**.
 
 ## Reprise rapide
 
@@ -18,26 +18,17 @@ avant la soutenance, ou inviter l'évaluateur)
 Plan détaillé (hors repo) : `C:\Users\Advis\.claude\plans\nouveau-projet-on-va-flickering-lightning.md`
 Figma dupliqué (accès édition) : `cTRr53Q53zS90AbL7kaF5c`
 
-## ⚠️ État du dépôt à relire en priorité
+## État du dépôt
 
-Le dernier commit poussé est `363291f` (fin d'étape 4). Le working tree
-contient en plus des **modifications non commitées**, faites en dehors du
-suivi normal des étapes (origine non identifiée — pas issues des sessions
-Claude tracées ici) :
+Les modifications faites hors session (commentaires retirés, footer
+« © 2026 Kasa. Tous droits réservés », route `/404` nommée retirée, ébauche
+de l'étape 9 dans `Housing.jsx`) ont été **conservées et commitées**.
+Seule retouche : la faute « Tout droits réservés » → « Tous ».
 
-- suppression de plusieurs commentaires explicatifs (`Router.jsx`,
-  `Banner.jsx`, `Banner.scss`, `Card.jsx`, `main.jsx`, `Home.scss`,
-  `_mixins.scss`)
-- `Router.jsx` : la route nommée `/404` a été retirée (seul le joker `*`
-  reste) — fonctionnellement équivalent, mais ce n'est plus ce qui était
-  prévu pour l'étape 9
-- `src/pages/Housing/Housing.jsx` contient déjà une ébauche de la logique
-  de l'**étape 9** (recherche du logement par id + `<Navigate to="/404" />`
-  si absent), alors que les étapes 5 à 8 n'ont pas encore été faites
+Route `/404` : pas réintroduite. `<Navigate to="/404" replace />` tombe sur
+le joker `*`, ce qui affiche la 404 avec l'URL `/404` — vérifié.
 
-Décision pour l'instant : **on garde ces changements tels quels**, non
-commités. À committer explicitement quand on reprend, une fois qu'on aura
-revu s'il faut réintroduire la route `/404` nommée.
+Rien n'est encore poussé depuis cette session : `git push` à faire.
 
 ## Décisions actées
 
@@ -84,47 +75,49 @@ revu s'il faut réintroduire la route `/404` nommée.
   gap 60/50, conteneur 1240px) et mobile 375px (1 colonne, pas de
   débordement horizontal). `loading="lazy"` sur les vignettes.
 
-- [x] **Étape 5 — Page À propos** — ⚠️ **contenu provisoire**
-  Composant `Collapse` créé et vérifié : fermé au chargement, toggle au
-  clic, ouverture/fermeture indépendantes, flèche qui pivote à 180°,
-  `aria-expanded` correct. Animation de hauteur via l'astuce
-  `grid-template-rows: 0fr → 1fr` (pas de mesure JS, pas de démontage
-  du contenu). `Banner` réutilisé tel quel, sans titre.
-  **Reste à faire** : remplacer les 2 placeholders visibles —
-  les 4 textes des collapses et l'image de bannière
-  (`banner-about-placeholder.svg`). Les deux sont marqués `TODO` dans
-  le code et volontairement voyants à l'écran.
+- [x] **Étape 5 — Page À propos** (commits `c29620e`, `8d79a66`)
+  Composant `Collapse` (fermé au chargement, flèche qui pivote, animation
+  de hauteur `grid-template-rows: 0fr → 1fr`). Vrais textes et vraie
+  bannière intégrés.
 
-- [x] **Étape 6 — Page 404** (`363291f` + travail non commité)
-  `404` en 288px/700 rouge, message, lien souligné vers l'accueil.
-  Responsive : 96px / 18px / 14px en mobile. Vérifié sur les deux
-  chemins qui y mènent (`/nimportequoi` et `/logement/id-bidon`).
+- [x] **Étape 6 — Page 404** (commits `c29620e`, `ed1d264`)
+  `404` en 288px/700 rouge, message, lien vers l'accueil. Responsive.
 
-- [ ] **Étape 7 — Carrousel (`Slideshow`)**
-  Pas commencée. Cas de test déjà identifiés dans les données : logements
-  à une seule image → `2139a317` et `cb02d69b` (ne doivent afficher ni
-  flèches ni numérotation).
+- [x] **Étape 7 — Carrousel (`Slideshow`)**
+  Boucle dans les deux sens (`(i ± 1 + n) % n`), hauteur fixe 415px
+  (255px mobile), `object-fit: cover`. Flèches et compteur masqués pour
+  un logement à une seule image (vérifié sur `2139a317`). Compteur masqué
+  en mobile, comme sur la maquette. `key={id}` sur le carrousel : il
+  repart de la photo 1 quand on change de logement.
 
-- [ ] **Étape 8 — Page logement**
-  Pas commencée. Réutilisera `Collapse` (étape 5) pour Description et
-  Équipements. ⚠️ `rating` dans le JSON est une **chaîne** (`"5"`, pas
-  `5`) — penser à `Number(rating)` dans le composant `Rating`.
+- [x] **Étape 8 — Page logement**
+  Composants `Tag`, `Host` (prénom / nom sur deux lignes, photo ronde),
+  `Rating` (`Number(rating)`, 5 étoiles SVG). `Collapse` réutilisé pour
+  Description et Équipements (texte 18px ici contre 24px sur À propos).
+  Mesures relevées sur la maquette à 1:1 (capture Figma pleine résolution)
+  et vérifiées dans le navigateur : titre 36px à y=608, tags 115×25,
+  avatar 64px, collapses 2×582px avec 76px d'écart. Mobile : titre 18px,
+  étoiles à gauche / hôte à droite, collapses empilés.
 
-- [ ] **Étape 9 — Redirection id invalide**
-  Logique déjà ébauchée dans le working tree non commité (voir section
-  ci-dessus) : `logements.find(l => l.id === id)` puis
-  `<Navigate to="/404" replace />` si `undefined`. À revalider une fois
-  les étapes 7-8 faites.
+- [x] **Étape 9 — Redirection id invalide**
+  `/logement/id-bidon` → `/404` en `replace`. Vérifié.
 
-- [ ] **Étape 10 — Vérification finale**
-  Pas commencée.
+- [x] **Étape 10 — Vérification finale** (16/09/2026)
+  - `npm run lint` : 0 problème · `npm run build` : OK
+  - Console : aucun warning ni erreur sur `/`, `/about`,
+    `/logement/:id`, `/404`
+  - Accueil : 20 vignettes · À propos : 4 collapses fermés au chargement
+  - Carrousel : boucle 1/5 → 5/5 (précédent) et 5/5 → 1/5 (suivant)
+  - Collapses indépendants, `aria-expanded` correct
+  - `/nimportequoi` et id invalide → 404
+  - Aucun débordement horizontal à 375px, 800px et 1440px, y compris
+    avec le titre le plus long (`b9123946`)
 
 ## Entrées encore manquantes côté utilisateur
 
 - Coding guidelines Kasa — pourrait remettre en cause `oxlint` (vs ESLint)
   et l'absence de PropTypes (React 19 les a supprimés pour les function
   components ; à revoir seulement si TypeScript est exigé)
-- Textes des 4 collapses de la page À propos — bloquant pour l'étape 5
 - Valeurs exactes des écrans hors `D_Home` (carrousel, 404, À propos,
   mobile) : décision actée de les **estimer visuellement** plutôt que
   d'attendre les node-ids Figma ; à corriger au pixel si un écart saute
