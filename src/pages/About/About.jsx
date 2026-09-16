@@ -29,7 +29,7 @@ const values = [
 function About() {
   return (
     <>
-      <Banner image={bannerImage} />
+      <Banner image={bannerImage} isLight />
       <section className="about-values">
         {values.map(({ id, title, text }) => (
           <Collapse key={id} title={title}>

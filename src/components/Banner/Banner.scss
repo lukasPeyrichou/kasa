@@ -26,6 +26,10 @@
     background-color: rgba(0, 0, 0, 0.6);
   }
 
+  &--light::after {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
   &__title {
     position: relative;
     z-index: 1;
