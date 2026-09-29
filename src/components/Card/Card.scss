@@ -8,7 +8,6 @@
   aspect-ratio: 1 / 1;
   padding: v.$gutter;
   border-radius: v.$radius-small;
-  // Visible tant que la photo distante n'est pas chargee (fond de la maquette).
   background-color: v.$color-primary;
   overflow: hidden;
   text-decoration: none;
@@ -21,7 +20,7 @@
     object-fit: cover;
   }
 
-  // Assombrit le bas de la vignette pour que le titre reste lisible.
+  // Degrade pour garder le titre lisible
   &::after {
     content: '';
     position: absolute;

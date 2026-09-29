@@ -6,7 +6,7 @@
   flex-direction: column;
   min-height: 100vh;
 
-  // Le footer est pleine largeur, le reste est contraint au conteneur 1240px.
+  // Footer pleine largeur, le reste limite a 1240px
   &__inner {
     display: flex;
     flex: 1 0 auto;
@@ -23,9 +23,6 @@
     }
   }
 
-  // A l'interieur d'une page, la maquette espace les blocs d'environ 40px
-  // (43px sur l'accueil, 38px sur A propos) — et non des 50px qui separent
-  // le header du contenu.
   &__main {
     display: flex;
     flex: 1 0 auto;

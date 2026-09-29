@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import './Slideshow.scss'
 
-/**
- * Carrousel des photos d'un logement. Il boucle dans les deux sens et
- * masque fleches et compteur quand il n'y a qu'une seule image.
- */
+// Carrousel, sans fleche si une photo
 function Slideshow({ pictures, title }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const total = pictures.length
@@ -48,7 +45,6 @@ function Slideshow({ pictures, title }) {
   )
 }
 
-// Chevron vers la droite ; la fleche "precedente" le retourne en CSS.
 function ChevronIcon() {
   return (
     <svg viewBox="0 0 48 80" fill="none" aria-hidden="true">

@@ -9,7 +9,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // 13px + 26px (18px x 1.426) + 13px = 52px, la hauteur de la maquette
     width: 100%;
     padding: 13px 24px 13px 17px;
     background-color: v.$color-primary;
@@ -28,13 +27,12 @@
     transition: transform 250ms ease;
   }
 
-  // :has() permet de cibler le header depuis l'etat de son panneau, sans JS.
+  // :has() cible le header selon l'etat du panneau
   &__header:has(~ &__panel--open) &__arrow {
     transform: rotate(180deg);
   }
 
-  // Astuce grid-template-rows 0fr -> 1fr : anime une hauteur qui vaut
-  // "auto" sans avoir a la mesurer en JS, et sans demonter le contenu.
+  // grid-template-rows 0fr -> 1fr : anime une hauteur auto
   &__panel {
     display: grid;
     grid-template-rows: 0fr;

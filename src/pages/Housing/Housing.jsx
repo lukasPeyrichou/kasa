@@ -10,10 +10,10 @@ import './Housing.scss'
 function Housing() {
   const { id } = useParams()
 
-  // On cherche le logement dont l'id correspond a celui de l'URL
+  // Recherche de logement via l'id dans le json
   const logement = logements.find((item) => item.id === id)
 
-  // Si aucun logement ne correspond, on redirige vers la page 404
+  // Vérif id
   if (!logement) {
     return <Navigate to="/404" replace />
   }
@@ -22,7 +22,7 @@ function Housing() {
 
   return (
     <article className="housing">
-      {/* key : repart de la premiere photo quand on change de logement */}
+      {/* key : photo 1 quand on change de logement */}
       <Slideshow key={id} pictures={pictures} title={title} />
 
       <div className="housing__header">

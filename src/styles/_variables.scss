@@ -1,5 +1,4 @@
-// Tokens releves sur la maquette Figma (frame D_Home).
-// Ne pas modifier sans revalider avec le fichier de Paul.
+// Variables SCSS = root CSS
 
 // Couleurs
 $color-primary: #ff6060;
@@ -7,7 +6,7 @@ $color-background: #f6f6f6;
 $color-white: #ffffff;
 $color-black: #000000;
 
-// Typographie
+// Fonts
 $font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
@@ -20,5 +19,5 @@ $section-gap: 50px;
 $radius-large: 25px;
 $radius-small: 10px;
 
-// Responsive
+// Breakpoints de responsive
 $breakpoint-mobile: 768px;

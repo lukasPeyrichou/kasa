@@ -1,7 +1,6 @@
 import './Host.scss'
 
 function Host({ name, picture }) {
-  // La maquette affiche le prenom et le nom sur deux lignes.
   const [firstName, ...lastNames] = name.split(' ')
 
   return (

@@ -1,10 +1,7 @@
 import { Link } from 'react-router'
 import './Card.scss'
 
-/**
- * Vignette d'un logement sur la page d'accueil.
- * Toute la carte est cliquable et mene vers la page du logement.
- */
+// Vignette cliquable menant a la page du logement
 function Card({ id, title, cover }) {
   return (
     <Link className="card" to={`/logement/${id}`}>
