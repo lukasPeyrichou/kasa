@@ -1,0 +1,16 @@
+# Dependabot : GitHub vérifie chaque semaine si une dépendance a une nouvelle
+# version ou une faille connue, et ouvre une pull request pour la mettre à jour.
+# Avant de fusionner : lancer `npm run build` et vérifier le site en local.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      # Les mises à jour mineures des outils de dev (Vite, Oxlint, Sass…) dans une seule PR
+      outils-de-dev:
+        dependency-type: "development"
+        update-types: ["minor", "patch"]
